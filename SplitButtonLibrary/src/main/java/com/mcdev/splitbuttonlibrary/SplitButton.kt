@@ -8,19 +8,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import androidx.annotation.IdRes
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.mcdev.splitbuttonlibrary.databinding.SplitButtonBinding
-import android.view.ViewTreeObserver
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.*
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.widget.PopupWindowCompat
 
 import androidx.annotation.MenuRes
 import java.lang.Exception
-import java.util.zip.Inflater
 
 
 class SplitButton @JvmOverloads constructor(
@@ -35,11 +29,11 @@ class SplitButton @JvmOverloads constructor(
 
     /*global variables*/
     private var _popupMenu: PopupMenu? = null
-//    private var _selectedItemTitle: String? = null
+    private var selectedItemId: Int = 0
+    private var selectedItemTitle: String? = null
 
     /*listeners*/
     private var buttonListener: OnButtonClickListener? = null
-    private var menuButtonClickListener: OnMenuButtonClickListener? = null
 
     private var arrayAdapter: ArrayAdapter<Any>? = null
     private var list : List<SplitMenu>? = null
@@ -47,18 +41,6 @@ class SplitButton @JvmOverloads constructor(
     var text: String = "Button"
         set(value) {
             binding.textBtn.text = value
-            field = value
-        }
-
-    private var selectedItemId: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    private var selectedItemTitle: String? = null
-        get() = field
-        set(value) {
             field = value
         }
 

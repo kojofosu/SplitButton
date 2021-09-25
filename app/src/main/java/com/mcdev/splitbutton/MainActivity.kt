@@ -3,7 +3,6 @@ package com.mcdev.splitbutton
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.mcdev.splitbuttonlibrary.OnButtonClickListener
 import com.mcdev.splitbuttonlibrary.SplitButton
 

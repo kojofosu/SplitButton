@@ -20,7 +20,6 @@
             android:background="@android:color/transparent"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:text="button"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_btn"/>
+            app:layout_constraintStart_toEndOf="@id/text_btn"
+            android:contentDescription="@string/image_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
