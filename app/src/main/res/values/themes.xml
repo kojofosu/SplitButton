@@ -21,13 +21,5 @@
         <item name="android:radius">30dp</item>
         <item name="cardCornerRadius">30dp</item>
         <item name="cornerRadius">30dp</item>
-
-<!--        <item name="android:color">@android:color/holo_orange_light</item>-->
-<!--        <item name="android:colorBackground">@android:color/holo_orange_light</item>-->
-<!--        <item name="cardBackgroundColor">@android:color/holo_orange_light</item>-->
-<!--        <item name="colorOnBackground">@android:color/holo_orange_light</item>-->
-<!--        <item name="color">@android:color/holo_orange_light</item>-->
-<!--        <item name="backgroundColor">@android:color/holo_orange_light</item>-->
-<!--        <item name="android:itemBackground">@android:color/holo_red_dark</item>-->
     </style>
 </resources>

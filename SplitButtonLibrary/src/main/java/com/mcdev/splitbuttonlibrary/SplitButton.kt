@@ -49,7 +49,7 @@ class SplitButton @JvmOverloads constructor(
     private var list : List<SplitMenu>? = null
 
     var text: String? = null
-        set(value) {
+        private set(value) {
             binding.textBtn.text = value
             field = value
         }

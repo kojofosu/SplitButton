@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         splitBtn = findViewById(R.id.split_btn)
         splitBtn.apply {
-            text = "January"
             setTextColor(R.color.black)
             setIconColor(android.R.color.white)
             setBgColor(android.R.color.holo_orange_light)
@@ -28,11 +27,11 @@ class MainActivity : AppCompatActivity() {
                     if (itemId == R.id.send) {
 
                         Toast.makeText(this@MainActivity, "Send", Toast.LENGTH_SHORT).show()
-                        Log.d("TAG", "onClick: nat  ")
+                        Log.d("TAG", "onClick: send  ")
                     }else if (itemId == R.id.sfl) {
 
                         Toast.makeText(this@MainActivity, "Save for later", Toast.LENGTH_SHORT).show()
-                        Log.d("TAG", "onClick: stay ")
+                        Log.d("TAG", "onClick: bookmark ")
                     } else if (itemId == R.id.draft) {
                         Toast.makeText(this@MainActivity, "Draft", Toast.LENGTH_SHORT).show()
                     }
