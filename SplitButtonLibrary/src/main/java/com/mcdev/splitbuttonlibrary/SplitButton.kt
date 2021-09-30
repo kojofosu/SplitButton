@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -15,6 +16,15 @@ import androidx.appcompat.widget.PopupMenu
 
 import androidx.annotation.MenuRes
 import java.lang.Exception
+import android.view.Gravity
+import android.view.ViewGroup
+
+import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
+
+import android.graphics.drawable.Drawable
+import android.widget.ListPopupWindow.WRAP_CONTENT
+import org.w3c.dom.Text
 
 
 class SplitButton @JvmOverloads constructor(
@@ -122,8 +132,9 @@ class SplitButton @JvmOverloads constructor(
 
 
     /*menu items*/
-    fun setMenuItems(@MenuRes menu: Int) {
-        val popupMenu = PopupMenu(context, binding.imgBtn)
+    fun setMenuItems(@MenuRes menu: Int, style: Int) {
+        val wrapper = ContextThemeWrapper(context, style)
+        val popupMenu = PopupMenu(wrapper, binding.imgBtn)
         popupMenu.inflate(menu)
         _popupMenu = popupMenu
     }
@@ -139,4 +150,22 @@ class SplitButton @JvmOverloads constructor(
         buttonListener = listener
     }
 
+    private fun setupListPopupWindow() {
+        val listItems = listOf("Monday", "Saturday")
+        val mPopupAdapter: ArrayAdapter<String> = ArrayAdapter(context, R.layout.layout_popup, R.id.details, listItems)
+
+        val albumPopup = ListPopupWindow(context)
+
+        albumPopup.width = LinearLayout.LayoutParams.MATCH_PARENT
+//        albumPopup.setContentWidth(Utils.measureContentWidth(mPopupAdapter, activity))
+
+        albumPopup.setAdapter(mPopupAdapter)
+        albumPopup.height = ListPopupWindow.WRAP_CONTENT
+        albumPopup.anchorView = binding.imgBtn
+        albumPopup.isModal = true
+        albumPopup.setDropDownGravity(Gravity.END)
+        val background = ContextCompat.getDrawable(context, R.drawable.popup_bg_rounded)
+        albumPopup.setBackgroundDrawable(background)
+        albumPopup.show()
+    }
 }

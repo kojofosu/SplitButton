@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             setTextColor(R.color.black)
             setIconColor(android.R.color.white)
             setBgColor(android.R.color.holo_orange_light)
-            setMenuItems(R.menu.split_menu)
+            setMenuItems(R.menu.split_menu, R.style.PopMen)
             setOnButtonClickListener(object : OnButtonClickListener {
                 override fun onClick(itemId: Int, itemTitle: String?) {
                     Log.d("TAG", "onClick: id :$itemId")

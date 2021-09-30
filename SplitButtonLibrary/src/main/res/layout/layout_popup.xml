@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="House pary"
+        android:padding="10dp"
+        android:maxLines="1"/>
+
+<!--    <ListView-->
+<!--        android:id="@+id/pp_lv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+</LinearLayout>
