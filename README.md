@@ -104,3 +104,5 @@ Sample implementation [here](app/)
         <item name="cornerRadius">30dp</item>
     </style>
 ```
+
+### Licensed under the [Apache-2.0 License](LICENSE)
