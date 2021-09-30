@@ -1,4 +1,6 @@
 # SplitButton
+![Jit](https://img.shields.io/jitpack/v/github/kojofosu/SplitButton?style=for-the-badge&color=2F9319) 
+
  A dual-function menu button that offers a default action as well as the possibility of choosing a different action by selecting from a set of alternatives.
 
 
