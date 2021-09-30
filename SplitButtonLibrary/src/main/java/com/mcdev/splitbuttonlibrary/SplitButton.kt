@@ -48,7 +48,7 @@ class SplitButton @JvmOverloads constructor(
     private var arrayAdapter: ArrayAdapter<Any>? = null
     private var list : List<SplitMenu>? = null
 
-    var text: String = "Button"
+    var text: String? = null
         set(value) {
             binding.textBtn.text = value
             field = value
@@ -137,6 +137,8 @@ class SplitButton @JvmOverloads constructor(
         val popupMenu = PopupMenu(wrapper, binding.imgBtn)
         popupMenu.inflate(menu)
         _popupMenu = popupMenu
+
+        text = popupMenu.menu.getItem(0).title.toString()
     }
 
     fun setMenuItems(splitMenuList: List<SplitMenu>) {

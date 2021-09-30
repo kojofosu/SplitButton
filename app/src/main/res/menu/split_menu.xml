@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nat"
-        android:icon="@drawable/ic_fi_sr_angle_small_down"
-        android:title="nathasia"/>
+        android:id="@+id/send"
+        android:icon="@drawable/ic_paper_plane"
+        android:title="Send"/>
 
     <item
-        android:id="@+id/stay"
-        android:icon="@drawable/ic_fi_sr_angle_small_up"
-        android:title="Stacey"/>
+        android:id="@+id/sfl"
+        android:icon="@drawable/ic_calendar"
+        android:title="Schedule"/>
+
+    <item
+        android:id="@+id/draft"
+        android:icon="@drawable/ic_bookmark"
+        android:title="Draft"/>
 </menu>

@@ -3,6 +3,7 @@ package com.mcdev.splitbutton
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.mcdev.splitbuttonlibrary.OnButtonClickListener
 import com.mcdev.splitbuttonlibrary.SplitButton
 
@@ -24,15 +25,16 @@ class MainActivity : AppCompatActivity() {
                 override fun onClick(itemId: Int, itemTitle: String?) {
                     Log.d("TAG", "onClick: id :$itemId")
                     Log.d("TAG", "onClick: title :$itemTitle")
-                    if (itemId == R.id.nat) {
+                    if (itemId == R.id.send) {
 
+                        Toast.makeText(this@MainActivity, "Send", Toast.LENGTH_SHORT).show()
                         Log.d("TAG", "onClick: nat  ")
-                    }else if (itemId == R.id.stay) {
+                    }else if (itemId == R.id.sfl) {
 
+                        Toast.makeText(this@MainActivity, "Save for later", Toast.LENGTH_SHORT).show()
                         Log.d("TAG", "onClick: stay ")
-                    } else {
-
-                        Log.d("TAG", "onClick: beans :$itemTitle")
+                    } else if (itemId == R.id.draft) {
+                        Toast.makeText(this@MainActivity, "Draft", Toast.LENGTH_SHORT).show()
                     }
                 }
             })
