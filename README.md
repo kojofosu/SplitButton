@@ -24,7 +24,10 @@ dependencies {
    implementation "com.github.kojofosu:SplitButton:$latest_release"
 }
 ```
+## Demo
 
+<img src="https://user-images.githubusercontent.com/20203694/135448734-082722f9-f6a2-43eb-a96c-294d7b7afcbf.gif" alt="demo"  width="300" height="300"/>
+    
 ## Usage
 Sample implementation [here](app/)
 
