@@ -5,8 +5,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
-import android.view.ContextThemeWrapper
-import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -16,13 +14,12 @@ import androidx.appcompat.widget.PopupMenu
 
 import androidx.annotation.MenuRes
 import java.lang.Exception
-import android.view.Gravity
-import android.view.ViewGroup
 
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 
 import android.graphics.drawable.Drawable
+import android.view.*
 import android.widget.ListPopupWindow.WRAP_CONTENT
 import org.w3c.dom.Text
 
@@ -141,10 +138,24 @@ class SplitButton @JvmOverloads constructor(
         text = popupMenu.menu.getItem(0).title.toString()
     }
 
-    fun setMenuItems(splitMenuList: List<SplitMenu>) {
-//        this.list = list
-        this.arrayAdapter = ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, splitMenuList)
-//        binding.textBtn.setAdapter(this.arrayAdapter)
+    fun setMenuItems(splitMenuList: List<SplitMenu>,style: Int) {
+
+        // Setting Menu Items from List
+        val wrapper = ContextThemeWrapper(context, style)
+        val popupMenu = PopupMenu(wrapper,binding.imgBtn)
+        for (item in splitMenuList){
+            // Item title set to SplitMenu tag
+            popupMenu.menu.apply {
+                add(Menu.NONE,item.position,Menu.NONE,item.tag)
+
+            }
+            if (item.icon!=null){
+                popupMenu.menu.getItem(item.position).setIcon(item.icon!!)
+            }
+
+        }
+        _popupMenu = popupMenu
+        text = popupMenu.menu.getItem(0).title.toString()
     }
 
     /*listeners*/
