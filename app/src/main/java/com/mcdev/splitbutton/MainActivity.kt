@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.mcdev.splitbuttonlibrary.OnButtonClickListener
 import com.mcdev.splitbuttonlibrary.SplitButton
+import com.mcdev.splitbuttonlibrary.SplitMenu
 
 class MainActivity : AppCompatActivity() {
     private lateinit var splitBtn: SplitButton
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
             setTextColor(R.color.black)
             setIconColor(android.R.color.white)
             setBgColor(android.R.color.holo_orange_light)
-            setMenuItems(R.menu.split_menu, R.style.PopMen)
+//            setMenuItems(R.menu.split_menu, R.style.PopMen)
+            setMenuItems(listOf(SplitMenu(0, "Merge", R.drawable.ic_calendar), SplitMenu(1, "Rebase")),R.style.PopMen)
             setOnButtonClickListener(object : OnButtonClickListener {
                 override fun onClick(itemId: Int, itemTitle: String?) {
                     Log.d("TAG", "onClick: id :$itemId")

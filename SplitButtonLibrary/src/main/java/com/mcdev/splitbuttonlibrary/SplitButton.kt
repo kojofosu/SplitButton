@@ -146,7 +146,7 @@ class SplitButton @JvmOverloads constructor(
         for (item in splitMenuList){
             // Item title set to SplitMenu tag
             popupMenu.menu.apply {
-                add(Menu.NONE,item.position,Menu.NONE,item.tag)
+                add(Menu.NONE,item.position,Menu.NONE,item.title)
 
             }
             if (item.icon!=null){
