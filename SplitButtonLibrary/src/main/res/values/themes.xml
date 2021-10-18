@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PopupMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:padding">3.25dp</item>
+        <item name="android:textStyle">bold</item>
+<!--        <item name="android:textColor">#C62828</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--&lt;!&ndash;        <item name="popupMenuBackground">@android:color/holo_red_light</item>&ndash;&gt;-->
+
+<!--        <item name="android:radius">50dp</item>-->
+<!--        <item name="cardCornerRadius">50dp</item>-->
+<!--        <item name="cornerRadius">50dp</item>-->
+
+
+<!--        <item name="android:dialogCornerRadius">50dp</item>-->
+<!--        <item name="android:innerRadius">50dp</item>-->
+
+<!--        <item name="elevation">40dp</item>-->
+<!--        <item name="elevationOverlayEnabled">true</item>-->
+<!--        <item name="elevationOverlayColor">#0D47A1</item>-->
+
+<!--        <item name="android:elevation">50dp</item>-->
+<!--        <item name="android:popupElevation">50dp</item>-->
+<!--        <item name="android:windowElevation">50dp</item>-->
+<!--        <item name="cardElevation">50dp</item>-->
+        
+
+    </style>
+</resources>

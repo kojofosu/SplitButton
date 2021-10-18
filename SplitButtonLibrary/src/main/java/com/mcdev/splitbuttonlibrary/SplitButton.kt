@@ -18,10 +18,10 @@ import java.lang.Exception
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 
-import android.graphics.drawable.Drawable
+import android.os.Build
 import android.view.*
-import android.widget.ListPopupWindow.WRAP_CONTENT
-import org.w3c.dom.Text
+import androidx.core.view.forEachIndexed
+import androidx.core.view.iterator
 
 
 class SplitButton @JvmOverloads constructor(
@@ -38,6 +38,7 @@ class SplitButton @JvmOverloads constructor(
     private var _popupMenu: PopupMenu? = null
     private var selectedItemId: Int = 0
     private var selectedItemTitle: String? = null
+    private var btnBgColor: Int = Color.parseColor("#000000")
 
     /*listeners*/
     private var buttonListener: OnButtonClickListener? = null
@@ -48,6 +49,12 @@ class SplitButton @JvmOverloads constructor(
     var text: String? = null
         private set(value) {
             binding.textBtn.text = value
+            field = value
+        }
+
+    var itemColor: Int? = null
+        get() = field
+        set(value) {
             field = value
         }
 
@@ -116,29 +123,57 @@ class SplitButton @JvmOverloads constructor(
 
     /*button background colors*/
     fun setBgColor(@ColorRes colorRes: Int) {
+        btnBgColor = resources.getColor(colorRes, context.theme)
         binding.sbRoot.setBackgroundColor(resources.getColor(colorRes, context.theme))
     }
 
     fun setBgColor(colorString: String) {
+        btnBgColor = Color.parseColor(colorString)
         binding.sbRoot.setBackgroundColor(Color.parseColor(colorString))
     }
 
     fun setBgColorInt(@ColorInt colorInt: Int) {
+        btnBgColor = colorInt
         binding.sbRoot.setBackgroundColor(colorInt)
     }
 
 
-    /*menu items*/
-    fun setMenuItems(@MenuRes menu: Int, style: Int) {
+    /*menu items
+    * todo update*/
+    fun setMenuItems(@MenuRes menu: Int, style: Int = R.style.PopupMenuStyle) {
+        itemColor = if (itemColor == null) {
+            btnBgColor
+        } else {
+            resources.getColor(itemColor!!, context.theme)
+        }
         val wrapper = ContextThemeWrapper(context, style)
         val popupMenu = PopupMenu(wrapper, binding.imgBtn)
         popupMenu.inflate(menu)
         _popupMenu = popupMenu
 
+        popupMenu.menu.forEachIndexed { index, item ->
+            if (item.icon!=null){
+                popupMenu.menu.getItem(index).icon = item.icon!! // sets item icon if it is not null
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    popupMenu.menu.getItem(index).iconTintList = ColorStateList.valueOf(itemColor!!)// sets item icon color for SDK 26+
+                }
+            }
+            val spanString = item.title.toString()
+                .parseSpannable(itemColor!!) // sets spannable
+            item.title =
+                spanString // sets spannable to item title to be able to change item text color
+        }
+
         text = popupMenu.menu.getItem(0).title.toString()
     }
 
-    fun setMenuItems(splitMenuList: List<SplitMenu>,style: Int) {
+    fun setMenuItems(splitMenuList: List<SplitMenu>,style: Int = R.style.PopupMenuStyle) {
+
+        itemColor = if (itemColor == null) {
+            btnBgColor
+        } else {
+            resources.getColor(itemColor!!, context.theme)
+        }
 
         // Setting Menu Items from List
         val wrapper = ContextThemeWrapper(context, style)
@@ -146,16 +181,22 @@ class SplitButton @JvmOverloads constructor(
         for (item in splitMenuList){
             // Item title set to SplitMenu tag
             popupMenu.menu.apply {
-                add(Menu.NONE,item.position,Menu.NONE,item.title)
-
+                add(Menu.NONE,item.position,Menu.NONE,item.title) //adds menu items
             }
+
             if (item.icon!=null){
-                popupMenu.menu.getItem(item.position).setIcon(item.icon!!)
+                popupMenu.menu.getItem(item.position).setIcon(item.icon!!) // sets item icon if it is not null
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    popupMenu.menu.getItem(item.position).iconTintList = ColorStateList.valueOf(itemColor!!)// sets item icon color for SDK 26+
+                }
             }
+            val spanString = popupMenu.menu.getItem(item.position).title.toString().parseSpannable(itemColor!!) // sets spannable
 
+            popupMenu.menu.getItem(item.position).title = spanString // sets spannable to item title to be able to change item text color
         }
-        _popupMenu = popupMenu
-        text = popupMenu.menu.getItem(0).title.toString()
+
+        _popupMenu = popupMenu// assign popup menu
+        text = popupMenu.menu.getItem(0).title.toString()// sets default button text to first item in list
     }
 
     /*listeners*/
@@ -163,6 +204,7 @@ class SplitButton @JvmOverloads constructor(
         buttonListener = listener
     }
 
+    /*unused*/
     private fun setupListPopupWindow() {
         val listItems = listOf("Monday", "Saturday")
         val mPopupAdapter: ArrayAdapter<String> = ArrayAdapter(context, R.layout.layout_popup, R.id.details, listItems)
