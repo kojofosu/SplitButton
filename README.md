@@ -26,6 +26,11 @@ dependencies {
    implementation "com.github.kojofosu:SplitButton:$latest_release"
 }
 ```
+
+## :bulb: Tech Used
+
+<img src="https://marvel-b1-cdn.bc0a.com/f00000000156946/www.jrebel.com/sites/rebel/files/image/2021-01/what%20is%20kotlin%20banner%20image.png" height="70px" width="100px"> 
+
 ## Demo
 
 <img src="https://user-images.githubusercontent.com/20203694/135448734-082722f9-f6a2-43eb-a96c-294d7b7afcbf.gif" alt="demo"  width="300" height="300"/>
