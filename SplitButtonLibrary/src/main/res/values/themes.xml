@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="PopupMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
-        <item name="android:padding">3.25dp</item>
+        <item name="android:paddingStart">3.25dp</item>
+        <item name="android:paddingEnd">3.25dp</item>
+        <item name="android:paddingTop">2.25dp</item>
+        <item name="android:paddingBottom">2.25dp</item>
         <item name="android:textStyle">bold</item>
 <!--        <item name="android:textColor">#C62828</item>-->
 <!--        <item name="android:textStyle">bold</item>-->
@@ -17,7 +20,7 @@
 
 <!--        <item name="elevation">40dp</item>-->
 <!--        <item name="elevationOverlayEnabled">true</item>-->
-<!--        <item name="elevationOverlayColor">#0D47A1</item>-->
+        <item name="elevationOverlayColor">#0D47A1</item>
 
 <!--        <item name="android:elevation">50dp</item>-->
 <!--        <item name="android:popupElevation">50dp</item>-->

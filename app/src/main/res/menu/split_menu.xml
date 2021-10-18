@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/send"
-        android:icon="@drawable/ic_paper_plane"
+        android:icon="@drawable/ic_baseline_send_24"
         android:title="Send"/>
 
     <item
         android:id="@+id/sfl"
-        android:icon="@drawable/ic_calendar"
+        android:icon="@drawable/ic_round_date_range_24"
         android:title="Schedule"/>
 
     <item
         android:id="@+id/draft"
-        android:icon="@drawable/ic_bookmark"
+        android:icon="@drawable/ic_baseline_bookmark_24"
         android:title="Draft"/>
 </menu>
