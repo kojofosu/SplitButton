@@ -18,12 +18,17 @@ class MainActivity : AppCompatActivity() {
 
         splitBtn = findViewById(R.id.split_btn)
         splitBtn.apply {
-            setTextColor(R.color.white)
+            setTextColor(R.color.black)
             setIconColor(android.R.color.white)
-            setBgColor("#1F51FF")
-            itemColor = R.color.blue_light
-            setMenuItems(R.menu.split_menu)
-//            setMenuItems(listOf(SplitMenu(0, "Merge", R.drawable.ic_calendar), SplitMenu(1, "Rebase", R.drawable.ic_bookmark)))
+            setBgColor(android.R.color.holo_orange_light)
+//            itemColor = R.color.blue_light
+//            setMenuItems(R.menu.split_menu)
+            setMenuItems(
+                listOf(
+                    SplitMenu(0, "Merge", R.drawable.ic_merge_git_icon),
+                    SplitMenu(1, "Rebase", R.drawable.git_request_icon)
+                )
+            )
             setOnButtonClickListener(object : OnButtonClickListener {
                 override fun onClick(itemId: Int, itemTitle: String?) {
                     Log.d("TAG", "onClick: id :$itemId")
