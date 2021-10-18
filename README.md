@@ -56,7 +56,9 @@ Sample implementation [here](app/)
     splitBtn.setTextColor(R.color.black)
     splitBtn.setIconColor(android.R.color.white)
     splitBtn.setBgColor(android.R.color.holo_orange_light)
-    splitBtn.setMenuItems(R.menu.split_menu, R.style.PopMen)
+    splitBtn.setMenuItems(R.menu.split_menu)
+    splitBtn.itemColor = android.R.color.holo_blue_dark // set menu items color
+    splitBtn
 ```
 
 ### Button listener
